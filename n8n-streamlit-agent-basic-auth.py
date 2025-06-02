@@ -15,6 +15,7 @@ def rfile(name_file):
 # Constants
 WEBHOOK_URL = rfile("WEBHOOK_URL.txt").strip()
 BEARER_TOKEN = st.secrets.get("BEARER_TOKEN")
+print("bearer:", BEARER_TOKEN)
 
 def generate_session_id():
     return str(uuid.uuid4())
@@ -30,7 +31,7 @@ def send_message_to_llm(session_id, message):
     }
     try:
         response = requests.post(WEBHOOK_URL, json=payload, headers=headers, timeout=10)
-        # response.raise_for_status()
+        response.raise_for_status()
         response_data = response.json()
         print("Full response:", response_data)  # In ra toàn bộ dữ liệu trả về
         return response_data[0].get("output", "No output received")  # Trả về "output"
