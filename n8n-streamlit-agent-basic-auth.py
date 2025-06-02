@@ -21,7 +21,7 @@ def generate_session_id():
 
 def send_message_to_llm(session_id, message):
     headers = {
-        "Authorization": f"Bearer {BEARER_TOKEN}",
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTE5MTRlNi1mNDJiLTQ0M2UtYjZjZC01MzE0N2IyOGE4OWIiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzQ4ODU5MTA1LCJleHAiOjE3NTEzODkyMDB9.rRCjrR2rwYI_PHVbsQ6JlDfKf06tXbyTG8Wkqk3hd8w",
         "Content-Type": "application/json"
     }
     payload = {
