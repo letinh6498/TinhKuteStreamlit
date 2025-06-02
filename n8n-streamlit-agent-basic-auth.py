@@ -21,7 +21,7 @@ def generate_session_id():
 
 def send_message_to_llm(session_id, message):
     headers = {
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyZTE5MTRlNi1mNDJiLTQ0M2UtYjZjZC01MzE0N2IyOGE4OWIiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzQ4ODU5MTA1LCJleHAiOjE3NTEzODkyMDB9.rRCjrR2rwYI_PHVbsQ6JlDfKf06tXbyTG8Wkqk3hd8w",
+        "Authorization": f"Bearer {BEARER_TOKEN}",
         "Content-Type": "application/json"
     }
     payload = {
@@ -30,7 +30,7 @@ def send_message_to_llm(session_id, message):
     }
     try:
         response = requests.post(WEBHOOK_URL, json=payload, headers=headers, timeout=10)
-        response.raise_for_status()
+        # response.raise_for_status()
         response_data = response.json()
         print("Full response:", response_data)  # In ra toàn bộ dữ liệu trả về
         return response_data[0].get("output", "No output received")  # Trả về "output"
