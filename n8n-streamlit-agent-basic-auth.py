@@ -31,7 +31,10 @@ def send_message_to_llm(session_id, message):
     try:
         response = requests.post(WEBHOOK_URL, json=payload, headers=headers, timeout=10)
         response.raise_for_status()
-        return response.json().get("output", "No output received")
+        response_data = response.json()
+        print("Full response:", response_data)  # In ra toàn bộ dữ liệu trả về
+        return response_data[0].get("output", "No output received")  # Trả về "output"
+        # return response.json().get("output", "No output received")
     except requests.exceptions.RequestException as e:
         return f"Error: Failed to connect to the LLM - {str(e)}"
 
