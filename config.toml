@@ -1,0 +1,2 @@
+WELCOME_MESSAGE = "Xin chào! Đây là lời chào bạn có thể tự sửa trong file config.toml."
+N8N_UPLOAD_URL = "https://your-n8n-endpoint/upload" # <-- Thay bằng endpoint thực tế của bạn
